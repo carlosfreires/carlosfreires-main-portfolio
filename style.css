@@ -1,0 +1,731 @@
+
+/* =========================================================
+   PREMIUM UI TOKENS — NON BREAKING
+   ========================================================= */
+:root {
+  --space-0: 4px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --easing-premium: cubic-bezier(.2,.9,.25,1);
+  --speed-fast: 160ms;
+  --speed-medium: 320ms;
+
+  --accent-600: #8b3be0;
+  --accent-200: rgba(168,85,247,0.12);
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-200);
+  border-radius: var(--radius-sm);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* =========================================================
+   VARIABLES & GLOBAL RESET
+   ========================================================= */
+
+:root {
+    --bg-dark: #090613;
+    --text-main: #ede9fe;
+    --text-muted: #a5b4d8;
+    --accent: #a855f7;
+    --accent-glow: rgba(168, 85, 247, 0.45);
+    --glass: rgba(168, 85, 247, 0.035);
+    --glass-border: rgba(168, 85, 247, 0.18);
+    --font-main: 'Inter', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+    --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --accent-gradient: linear-gradient(
+        135deg,
+        #a855f7,
+        #7c3aed,
+        #ec4899
+    );
+    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   BASE STYLES
+   ========================================================= */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BACKGROUND EFFECTS
+   ========================================================= */
+
+/* Canvas animado */
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Glow que segue o cursor */
+#cursor-glow {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: width 0.2s, height 0.2s;
+}
+
+
+/* =========================================================
+   NAVIGATION BAR
+   ========================================================= */
+
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--glass);
+
+    /* Suporte para versões anteriores do Safari e iOS */
+    -webkit-backdrop-filter: blur(12px);
+  
+    /* Suporte padrão (Chrome, Edge, Firefox e Safari 18+) */
+    backdrop-filter: blur(12px);
+  
+    /* Essencial: o fundo deve ter alguma transparência para o efeito ser visível */
+    background-color: var(--glass); 
+
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.img-prof {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    transition: var(--transition);
+}
+
+.img-prof::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+
+    /* Glow púrpura neon refinado */
+    box-shadow:
+        0 0 0 0 var(--accent),
+        0 0 14px var(--accent-glow),
+        0 0 28px rgba(168, 85, 247, 0.35);
+
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.img-prof img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Leve ajuste para harmonizar com neon */
+    filter: saturate(1.08) contrast(1.05);
+}
+
+/* Hover sutil premium */
+.logo:hover .img-prof {
+    border-color: var(--accent);
+}
+
+.logo:hover .img-prof::after {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .img-prof {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.highlight {
+    background: var(--accent-gradient);
+
+    /* Define a cor do texto como transparente para o fundo aparecer */
+    color: transparent;
+
+    /* Suporte para Chrome, Safari, Edge e versões anteriores do iOS/macOS */
+    -webkit-background-clip: text;
+
+    /* Propriedade padrão para conformidade com especificações futuras e Firefox */
+    background-clip: text;
+
+    /* Exemplo de fundo (gradiente ou imagem) */
+    background-image: var(--accent-gradient);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* ================================
+   NAV LINKS — DESKTOP DEFAULT
+================================ */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    position: relative;
+    transition: color var(--speed-fast) var(--easing-premium);
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Botão de menu mobile */
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   LANGUAGE SWITCHER (COSMIC SMOKE)
+   ========================================================= */
+
+.lang-wrapper {
+    position: relative;
+    margin-left: 2rem;
+    display: inline-block;
+    z-index: 1100;
+}
+
+/* Botão de idioma */
+.lang-btn {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-code);
+    transition: var(--transition);
+    outline: none;
+}
+
+.lang-btn:hover {
+    border-color: var(--accent);
+}
+
+/* Menu suspenso */
+.lang-menu {
+    position: absolute;
+    top: 130%;
+    right: 0;
+
+    list-style: none;
+    padding: 0.6rem;
+    margin: 0;
+
+    border-radius: 16px;
+
+    background: radial-gradient(
+        circle at top,
+        rgba(255,255,255,0.12),
+        var(--glass)
+    );
+
+    /* Suporte para Safari 9+ e iOS 9+ (versões antigas e estáveis) */
+    -webkit-backdrop-filter: blur(16px);
+  
+    /* Suporte padrão para Chrome, Firefox, Edge e Safari 18+ */
+    backdrop-filter: blur(16px);
+  
+    /* Obrigatório: o fundo deve ter alguma transparência para o blur ser visível */
+    background-color: var(--glass); 
+
+    box-shadow:
+        0 0 40px rgba(59,130,246,0.15),
+        inset 0 0 30px rgba(255,255,255,0.05);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px) scale(0.97);
+    transition: all 0.25s ease;
+}
+
+/* Mantém aberto enquanto hover/focus existir */
+.lang-wrapper:hover .lang-menu,
+.lang-wrapper:focus-within .lang-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+/* Itens do menu */
+.lang-menu li {
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem 0;
+    border-radius: 10px;
+
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.lang-menu li:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 14px rgba(147,197,253,0.35);
+}
+
+/* Idioma ativo */
+.lang-menu li.active {
+    color: #fff;
+    background: rgba(59,130,246,0.18);
+    box-shadow: 0 0 18px rgba(59,130,246,0.45);
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+main {
+    flex: 1;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    padding: clamp(3rem, 6vh, 4rem) 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1, h2 {
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2.5rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+}
+
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.5rem;
+
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px var(--accent);
+}
+
+.btn.secondary {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+}
+
+/* Cards */
+.card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+/* =========================================================
+   CONTACT CARDS
+   ========================================================= */
+
+.contact-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text-main);
+
+    cursor: pointer;
+}
+
+.contact-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.contact-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.contact-card span {
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    color: var(--text-main);
+}
+
+/* Hover refinado */
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -20px var(--accent);
+}
+
+/* =========================================================
+   FOOTER — ULTRA SUTIL
+   ========================================================= */
+
+.glass-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1.2rem 5%;
+    margin-top: auto;
+
+    background: transparent;
+
+    /* linha quase imperceptível */
+    border-top: 1px solid;
+    border-image: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.12),
+        transparent
+    ) 1;
+}
+
+.glass-footer p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* ======================
+   SOCIAL ICONS
+   ====================== */
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.socials a {
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.socials a:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* Tags */
+.skill-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    margin: 0.2rem;
+
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent);
+
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-family: var(--font-code);
+}
+
+
+/* =========================================================
+   GRID SYSTEMS
+   ========================================================= */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* =========================================================
+   RESPONSIVE — PREMIUM & NON-BREAKING
+   ========================================================= */
+
+/* ======================
+   TABLET & MOBILE
+   ====================== */
+@media (max-width: 768px) {
+
+    /* ---------- NAVIGATION ---------- */
+
+    /* Wrapper do dropdown */
+    .nav-wrapper {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 16px;
+        z-index: 1000;
+    }
+
+    /* Nav vira dropdown */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: 0.6rem;
+
+        border-radius: 16px;
+
+        background: radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.12),
+            var(--glass)
+        );
+
+        /* Suporte para iOS 9-17 e versões estáveis do Safari macOS */
+        -webkit-backdrop-filter: blur(16px);
+  
+        /* Suporte padrão (Chrome, Firefox, Edge e Safari 18+) */
+        backdrop-filter: blur(16px);
+  
+        /* Essencial: o fundo DEVE ter transparência (alpha) */
+        background-color: var(--glass); 
+
+        box-shadow:
+            0 0 40px rgba(168,85,247,0.15),
+            inset 0 0 30px rgba(255,255,255,0.05);
+
+        min-width: 190px;
+
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px) scale(0.97);
+        transition: all var(--speed-medium) var(--easing-premium);
+    }
+
+    .nav-links.open {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+
+    .nav-links a {
+        padding: 0.5rem 0.8rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.08);
+        box-shadow: 0 0 14px rgba(168,85,247,0.25);
+    }
+
+    /* Botão hamburger */
+    #mobile-menu-btn {
+        display: block;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+
+    h1 {
+        font-size: clamp(2.2rem, 6vw, 2.6rem);
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+    }
+
+    /* ---------- GRID ---------- */
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+
+    /* ---------- SECTIONS ---------- */
+
+    section {
+        padding: clamp(2.5rem, 6vh, 3.5rem) 5%;
+    }
+
+    main {
+        padding-top: 72px; /* ajusta nav fixa */
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    .glass-footer {
+        flex-direction: column-reverse;
+        gap: 0.8rem;
+        text-align: center;
+    }
+}
+
+/* ======================
+   SMALL PHONES
+   ====================== */
+@media (max-width: 420px) {
+
+    section {
+        padding: 2.2rem 4%;
+    }
+
+    .glass-footer {
+        padding: 1rem 4%;
+    }
+
+    .socials {
+        order: -1;
+    }
+
+    .glass-footer p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+}
+
+/* ======================
+   HERO NORMALIZATION
+   ====================== */
+
+.hero--tall {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 720px) {
+    .hero--tall {
+        min-height: fit-content;
+        padding-top: var(--space-4);
+        padding-bottom: var(--space-4);
+    }
+}
