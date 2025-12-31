@@ -22,7 +22,7 @@ export const About = () => {
                             <i data-lucide="file-text"></i> ${i18n.get("about.resume")}
                         </a>
 
-                        <a href="#certifications" class="btn secondary">
+                        <a href="https://drive.google.com/drive/folders/1cTsh-_nvS1oDd2f43VkePsWjO0h842hi?usp=sharing" class="btn secondary">
                             <i data-lucide="award"></i> ${i18n.get("about.certs_btn")}
                         </a>
                     </div>
