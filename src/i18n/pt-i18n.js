@@ -9,8 +9,8 @@ export const pt = {
 
     home: {
         greeting: "Olá, eu sou",
-        role: "Desenvolvedor Full-Stack </br> Consultoria e Gestão de Projetos em Tecnologia",
-        desc: "Especialista em transformar desafios de negócio em soluções tecnológicas de alta performance.",
+        role: "Desenvolvedor Full-Stack & </br> Consultor em Transformação Digital",
+        desc: "Da estratégia à execução, desenvolvo soluções que transformam desafios em ativos estratégicos.",
         cta: "Ver Projetos",
         contact: "Contato"
     },
