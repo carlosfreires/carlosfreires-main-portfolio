@@ -7,8 +7,8 @@ export const es = {
     },
     home: {
         greeting: "Hola, soy",
-        role: "Desarrollador Full-Stack </br> Consultoría y Gestión de Proyectos Tecnológicos",
-        desc: "Experto en transformar desafíos empresariales en soluciones tecnológicas de alto rendimiento.",
+        role: "Desarrollador Full Stack & </br> Consultor en Transformación Digital",
+        desc: "Desde la estrategia hasta la ejecución, desarrollo soluciones que convierten desafíos complejos en activos estratégicos.",
         cta: "Ver Proyectos",
         contact: "Contacto"
     },
