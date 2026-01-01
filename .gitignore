@@ -1,0 +1,9 @@
+# Dev-only
+serve.py
+
+# Python
+__pycache__/
+*.pyc
+
+# Env
+.env
