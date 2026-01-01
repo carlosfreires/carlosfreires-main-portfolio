@@ -2,7 +2,7 @@ export const profile = {
     en: {
         name: "Carlos Freires",
         email: "freires.carlos@outlook.com",
-        resumeLink: "https://drive.google.com/file/d/1XmItf3GigL8TC9DStOHmPYFpoeGU6uBX/view?usp=sharing",
+        resumeLink: "https://drive.google.com/file/d/1ujiRnjuvK27dKUSJzWQAFyfMh80oMJAj/view?usp=sharing",
         certs: [
             { 
                 name: "Digital Transformation and Innovation – Fundação Bradesco", 
@@ -29,7 +29,7 @@ export const profile = {
     pt: {
         name: "Carlos Freires",
         email: "freires.carlos@outlook.com",
-        resumeLink: "https://drive.google.com/file/d/1Bs7i5QzgcAcvR7BWgUjGKTkefHkf4w-b/view?usp=sharing",
+        resumeLink: "https://drive.google.com/file/d/1R3bY-803uOjoLmfUJo3FR8N8ZlU-vJDj/view?usp=sharing",
         certs: [
             { 
                 name: "Transformação Digital e Inovação – Fundação Bradesco", 
@@ -56,7 +56,7 @@ export const profile = {
     es: {
         name: "Carlos Freires",
         email: "freires.carlos@outlook.com",
-        resumeLink: "https://drive.google.com/file/d/1kKIWc6zfLbbYJ92ZaB3dlgvQ7Vndt3sP/view?usp=sharing",
+        resumeLink: "https://drive.google.com/file/d/1MfGa81Iy9LVr2SXule5FzFruBAQ9W9I4/view?usp=sharing",
         certs: [
             { 
                 name: "Transformación Digital e Innovación – Fundação Bradesco", 
@@ -83,7 +83,7 @@ export const profile = {
     zh: {
         name: "Carlos Freires",
         email: "freires.carlos@outlook.com",
-        resumeLink: "https://drive.google.com/file/d/1nKDDw6GVcK7ARNDNodae8M3Zz-oEEjny/view?usp=sharing",
+        resumeLink: "https://drive.google.com/file/d/1mI5CTW10vT1k2JHddbsYuAvwkUFmCUFM/view?usp=sharing",
         certs: [
             { 
                 name: "数字化转型与创新 – Fundação Bradesco", 

@@ -9,8 +9,8 @@ export const contact = {
         whatsapp: {
             label: "WhatsApp",
             message: "Chat with me on WhatsApp",
-            value: "+55 (21) 9 7985-2680",
-            link: "https://wa.me/5521979852680"
+            value: "+55 (21) 99235-3186", 
+            link: "https://wa.me/5521992353186"
         }
     },
 
@@ -24,8 +24,8 @@ export const contact = {
         whatsapp: {
             label: "WhatsApp",
             message: "Fale comigo pelo WhatsApp",
-            value: "+55 (21) 9 7985-2680",
-            link: "https://wa.me/5521979852680"
+            value: "+55 (21) 99235-3186",
+            link: "https://wa.me/5521992353186"
         }
     },
 
@@ -39,8 +39,8 @@ export const contact = {
         whatsapp: {
             label: "WhatsApp",
             message: "Habla conmigo por WhatsApp",
-            value: "+55 (21) 9 7985-2680",
-            link: "https://wa.me/5521979852680"
+            value: "+55 (21) 99235-3186",
+            link: "https://wa.me/5521992353186"
         }
     },
 
@@ -54,8 +54,8 @@ export const contact = {
         whatsapp: {
             label: "WhatsApp",
             message: "通过 WhatsApp 与我联系",
-            value: "+55 (21) 9 7985-2680",
-            link: "https://wa.me/5521979852680"
+            value: "+55 (21) 99235-3186",
+            link: "https://wa.me/5521992353186"
         }
     }
 };
